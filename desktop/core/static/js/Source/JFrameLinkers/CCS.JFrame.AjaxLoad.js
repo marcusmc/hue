@@ -61,9 +61,10 @@ script: CCS.JFrame.AjaxLoad.js
 				requestPath: link.get('href'),
 				spinnerTarget: target,
 				target: requestTarget,
-				ignorePartialRefresh: true,
+				onlyProcessPartials: true,
 				ignoreAutoRefresh: true,
 				suppressLoadComplete: true,
+				resetAutoRefresh: true,
 				retainPath: true,
 				callback: function(data){
 					switch(action){
