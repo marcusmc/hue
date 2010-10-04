@@ -84,10 +84,12 @@
       </%def>
 
       <thead>
-        <th>command</th>
-        <th>pid</th>
-        <th>user</th>
-        <th>cputime</th>
+        <tr>
+          <th>command</th>
+          <th>pid</th>
+          <th>user</th>
+          <th>cputime</th>
+        </tr>
       </thead>
       <tbody data-partial-container-id="pstree-body">
         % for top in tops:

@@ -110,10 +110,12 @@ var setupAutoRefresh = function(content) {
 	refreshTable.set(this, timer);
 
 	//when a new request is generated (i.e. the user clicks a link, or refresh, or autorefresh)
-	//check to see if the options for the request have the resetAutoRefresh flag; if so
-	//restart our counter
+	//check to see if the options for the request have the fullFrameLoad flag set to true; if not
+	//restart our counter. For example, if a user does an AJAX request to update a dom (as we do
+	//in the AjaxLoad jframe linker), that's still a request, but it's not a request for the entire
+	//page so has no refresh handling of its own
 	var clearer = function(requestPath, userData, options){
-		if (options.resetAutoRefresh) {
+		if (!options.fullFrameLoad) {
 			setupAutoRefresh.call(this, content);
 		} else {
 			$clear(timer);
